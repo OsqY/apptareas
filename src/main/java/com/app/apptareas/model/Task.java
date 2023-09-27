@@ -7,14 +7,22 @@ import lombok.Setter;
 @Entity
 @Table(name = "tasks")
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
-    private int id;
+    private Long id;
     @Getter @Setter
     private String title;
     @Getter @Setter
     private String description;
+    public enum Status {
+        NOT_STARTED,
+        PENDING,
+        IN_PROGRESS,
+        COMPLETED
+    }
     @Getter @Setter
-    private String status;
+    private Status status;
 }
+
